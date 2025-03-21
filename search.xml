@@ -4,6 +4,13 @@
     <title>我的第一篇文章</title>
     <url>/2025/03/21/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
     <content><![CDATA[<p>使用hexo+next搭建我的博客，并且利用github进行访问，访问地址为：<a href="https://nami404.github.io/">https://nami404.github.io/</a></p>
+<p>next主题配置：<a href="https://blog.csdn.net/as480133937/article/details/100138838">https://blog.csdn.net/as480133937/article/details/100138838</a></p>
+<p>发表文章教程：<a href="https://fuguigui.github.io/hexo2/">https://fuguigui.github.io/hexo2/</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/nami404/BlogImage@main/img/202503212354270.png" alt="image-20250321235417442"></p>
+<p>另外，配置Typora+PicGo+Github实现图床，保存博客中的图片。</p>
+<p>使用到的教程：<a href="https://zhuanlan.zhihu.com/p/489236769">https://zhuanlan.zhihu.com/p/489236769</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/nami404/BlogImage@main/img/202503212358165.png" alt="image-20250321235812359"></p>
+<p>注意第一个设定仓库名，是“用户名&#x2F;仓库名”，然后自定义域名按照上面教程来的进行cdn配置。</p>
 ]]></content>
   </entry>
   <entry>
