@@ -20,28 +20,39 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Nami404">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="salaries表的DDL： 12345678CREATE TABLE &#96;salaries&#96; (  &#96;emp_no&#96; int NOT NULL,  &#96;salary&#96; int NOT NULL,  &#96;from_date&#96; date NOT NULL,  &#96;to_date&#96; date NOT NULL,  PRIMARY KEY (&#96;emp_no&#96;,&#96;from_date&#96;),  CONSTRAINT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Explain执行计划">
+<meta property="og:url" content="http://example.com/2025/03/24/Explain%E6%89%A7%E8%A1%8C%E8%AE%A1%E5%88%92/index.html">
 <meta property="og:site_name" content="Nami404">
+<meta property="og:description" content="salaries表的DDL： 12345678CREATE TABLE &#96;salaries&#96; (  &#96;emp_no&#96; int NOT NULL,  &#96;salary&#96; int NOT NULL,  &#96;from_date&#96; date NOT NULL,  &#96;to_date&#96; date NOT NULL,  PRIMARY KEY (&#96;emp_no&#96;,&#96;from_date&#96;),  CONSTRAINT">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/nami404/BlogImage@main/img/202503241707667.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/nami404/BlogImage@main/img/202503241709339.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/nami404/BlogImage@main/img/202503241728128.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/nami404/BlogImage@main/img/202503241731904.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/nami404/BlogImage@main/img/202503242025770.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/nami404/BlogImage@main/img/202503242059734.png">
+<meta property="article:published_time" content="2025-03-24T09:04:02.000Z">
+<meta property="article:modified_time" content="2025-03-24T13:08:58.647Z">
 <meta property="article:author" content="nami404">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/nami404/BlogImage@main/img/202503241707667.png">
 
-<link rel="canonical" href="http://example.com/">
+<link rel="canonical" href="http://example.com/2025/03/24/Explain%E6%89%A7%E8%A1%8C%E8%AE%A1%E5%88%92/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>Nami404</title>
+  <title>Explain执行计划 | Nami404</title>
   
 
 
@@ -155,9 +166,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
@@ -173,10 +185,9 @@
       <meta itemprop="name" content="Nami404">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2025/03/24/Explain%E6%89%A7%E8%A1%8C%E8%AE%A1%E5%88%92/" class="post-title-link" itemprop="url">Explain执行计划</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          Explain执行计划
+        </h1>
 
         <div class="post-meta">
          
@@ -202,7 +213,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><code>salaries表</code>的DDL：</p>
+        <p><code>salaries表</code>的DDL：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE TABLE</span> `salaries` (</span><br><span class="line">  `emp_no` <span class="type">int</span> <span class="keyword">NOT NULL</span>,</span><br><span class="line">  `salary` <span class="type">int</span> <span class="keyword">NOT NULL</span>,</span><br><span class="line">  `from_date` <span class="type">date</span> <span class="keyword">NOT NULL</span>,</span><br><span class="line">  `to_date` <span class="type">date</span> <span class="keyword">NOT NULL</span>,</span><br><span class="line">  <span class="keyword">PRIMARY KEY</span> (`emp_no`,`from_date`),</span><br><span class="line">  <span class="keyword">CONSTRAINT</span> `salaries_ibfk_1` <span class="keyword">FOREIGN KEY</span> (`emp_no`) <span class="keyword">REFERENCES</span> `employees` (`emp_no`) <span class="keyword">ON</span> <span class="keyword">DELETE</span> CASCADE</span><br><span class="line">) ENGINE<span class="operator">=</span>InnoDB <span class="keyword">DEFAULT</span> CHARSET<span class="operator">=</span>utf8mb4 <span class="keyword">COLLATE</span><span class="operator">=</span>utf8mb4_0900_ai_ci;</span><br></pre></td></tr></table></figure>
 
 <p><code>salaries表</code>的数据截图：</p>
@@ -257,89 +268,30 @@
 <h2 id="对应数据库表的DDL："><a href="#对应数据库表的DDL：" class="headerlink" title="对应数据库表的DDL："></a>对应数据库表的DDL：</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE TABLE</span> `salaries` (</span><br><span class="line">  `emp_no` <span class="type">int</span> <span class="keyword">NOT NULL</span>,</span><br><span class="line">  `salary` <span class="type">int</span> <span class="keyword">NOT NULL</span>,</span><br><span class="line">  `from_date` <span class="type">date</span> <span class="keyword">NOT NULL</span>,</span><br><span class="line">  `to_date` <span class="type">date</span> <span class="keyword">NOT NULL</span>,</span><br><span class="line">  <span class="keyword">PRIMARY KEY</span> (`emp_no`,`from_date`),</span><br><span class="line">  <span class="keyword">CONSTRAINT</span> `salaries_ibfk_1` <span class="keyword">FOREIGN KEY</span> (`emp_no`) <span class="keyword">REFERENCES</span> `employees` (`emp_no`) <span class="keyword">ON</span> <span class="keyword">DELETE</span> CASCADE</span><br><span class="line">) ENGINE<span class="operator">=</span>InnoDB <span class="keyword">DEFAULT</span> CHARSET<span class="operator">=</span>utf8mb4 <span class="keyword">COLLATE</span><span class="operator">=</span>utf8mb4_0900_ai_ci;</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE TABLE</span> `dept_emp` (</span><br><span class="line">  `emp_no` <span class="type">int</span> <span class="keyword">NOT NULL</span>,</span><br><span class="line">  `dept_no` <span class="type">char</span>(<span class="number">4</span>) <span class="keyword">NOT NULL</span>,</span><br><span class="line">  `from_date` <span class="type">date</span> <span class="keyword">NOT NULL</span>,</span><br><span class="line">  `to_date` <span class="type">date</span> <span class="keyword">NOT NULL</span>,</span><br><span class="line">  <span class="keyword">PRIMARY KEY</span> (`emp_no`,`dept_no`),</span><br><span class="line">  KEY `dept_no` (`dept_no`),</span><br><span class="line">  <span class="keyword">CONSTRAINT</span> `dept_emp_ibfk_1` <span class="keyword">FOREIGN KEY</span> (`emp_no`) <span class="keyword">REFERENCES</span> `employees` (`emp_no`) <span class="keyword">ON</span> <span class="keyword">DELETE</span> CASCADE,</span><br><span class="line">  <span class="keyword">CONSTRAINT</span> `dept_emp_ibfk_2` <span class="keyword">FOREIGN KEY</span> (`dept_no`) <span class="keyword">REFERENCES</span> `departments` (`dept_no`) <span class="keyword">ON</span> <span class="keyword">DELETE</span> CASCADE</span><br><span class="line">) ENGINE<span class="operator">=</span>InnoDB <span class="keyword">DEFAULT</span> CHARSET<span class="operator">=</span>utf8mb4 <span class="keyword">COLLATE</span><span class="operator">=</span>utf8mb4_0900_ai_ci;</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE TABLE</span> `dept_manager` (</span><br><span class="line">  `emp_no` <span class="type">int</span> <span class="keyword">NOT NULL</span>,</span><br><span class="line">  `dept_no` <span class="type">char</span>(<span class="number">4</span>) <span class="keyword">NOT NULL</span>,</span><br><span class="line">  `from_date` <span class="type">date</span> <span class="keyword">NOT NULL</span>,</span><br><span class="line">  `to_date` <span class="type">date</span> <span class="keyword">NOT NULL</span>,</span><br><span class="line">  <span class="keyword">PRIMARY KEY</span> (`emp_no`,`dept_no`),</span><br><span class="line">  KEY `dept_no` (`dept_no`),</span><br><span class="line">  <span class="keyword">CONSTRAINT</span> `dept_manager_ibfk_1` <span class="keyword">FOREIGN KEY</span> (`emp_no`) <span class="keyword">REFERENCES</span> `employees` (`emp_no`) <span class="keyword">ON</span> <span class="keyword">DELETE</span> CASCADE,</span><br><span class="line">  <span class="keyword">CONSTRAINT</span> `dept_manager_ibfk_2` <span class="keyword">FOREIGN KEY</span> (`dept_no`) <span class="keyword">REFERENCES</span> `departments` (`dept_no`) <span class="keyword">ON</span> <span class="keyword">DELETE</span> CASCADE</span><br><span class="line">) ENGINE<span class="operator">=</span>InnoDB <span class="keyword">DEFAULT</span> CHARSET<span class="operator">=</span>utf8mb4 <span class="keyword">COLLATE</span><span class="operator">=</span>utf8mb4_0900_ai_ci;</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE TABLE</span> `employees` (</span><br><span class="line">  `emp_no` <span class="type">int</span> <span class="keyword">NOT NULL</span>,</span><br><span class="line">  `birth_date` <span class="type">date</span> <span class="keyword">NOT NULL</span>,</span><br><span class="line">  `first_name` <span class="type">varchar</span>(<span class="number">14</span>) <span class="keyword">NOT NULL</span>,</span><br><span class="line">  `last_name` <span class="type">varchar</span>(<span class="number">16</span>) <span class="keyword">NOT NULL</span>,</span><br><span class="line">  `gender` enum(<span class="string">&#x27;M&#x27;</span>,<span class="string">&#x27;F&#x27;</span>) <span class="keyword">NOT NULL</span>,</span><br><span class="line">  `hire_date` <span class="type">date</span> <span class="keyword">NOT NULL</span>,</span><br><span class="line">  <span class="keyword">PRIMARY KEY</span> (`emp_no`)</span><br><span class="line">) ENGINE<span class="operator">=</span>InnoDB <span class="keyword">DEFAULT</span> CHARSET<span class="operator">=</span>utf8mb4 <span class="keyword">COLLATE</span><span class="operator">=</span>utf8mb4_0900_ai_ci;</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE TABLE</span> `titles` (</span><br><span class="line">  `emp_no` <span class="type">int</span> <span class="keyword">NOT NULL</span>,</span><br><span class="line">  `title` <span class="type">varchar</span>(<span class="number">50</span>) <span class="keyword">NOT NULL</span>,</span><br><span class="line">  `from_date` <span class="type">date</span> <span class="keyword">NOT NULL</span>,</span><br><span class="line">  `to_date` <span class="type">date</span> <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  <span class="keyword">PRIMARY KEY</span> (`emp_no`,`title`,`from_date`),</span><br><span class="line">  <span class="keyword">CONSTRAINT</span> `titles_ibfk_1` <span class="keyword">FOREIGN KEY</span> (`emp_no`) <span class="keyword">REFERENCES</span> `employees` (`emp_no`) <span class="keyword">ON</span> <span class="keyword">DELETE</span> CASCADE</span><br><span class="line">) ENGINE<span class="operator">=</span>InnoDB <span class="keyword">DEFAULT</span> CHARSET<span class="operator">=</span>utf8mb4 <span class="keyword">COLLATE</span><span class="operator">=</span>utf8mb4_0900_ai_ci;</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE TABLE</span> `departments` (</span><br><span class="line">  `dept_no` <span class="type">char</span>(<span class="number">4</span>) <span class="keyword">NOT NULL</span>,</span><br><span class="line">  `dept_name` <span class="type">varchar</span>(<span class="number">40</span>) <span class="keyword">NOT NULL</span>,</span><br><span class="line">  <span class="keyword">PRIMARY KEY</span> (`dept_no`),</span><br><span class="line">  <span class="keyword">UNIQUE</span> KEY `dept_name` (`dept_name`)</span><br><span class="line">) ENGINE<span class="operator">=</span>InnoDB <span class="keyword">DEFAULT</span> CHARSET<span class="operator">=</span>utf8mb4 <span class="keyword">COLLATE</span><span class="operator">=</span>utf8mb4_0900_ai_ci;</span><br></pre></td></tr></table></figure>
 
 
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/03/21/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/">
+        
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="nami404">
-      <meta itemprop="description" content="">
-    </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Nami404">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2025/03/21/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/" class="post-title-link" itemprop="url">我的第一篇文章</a>
-        </h2>
-
-        <div class="post-meta">
-         
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2025-03-21 22:54:49 / 修改时间：23:59:04" itemprop="dateCreated datePublished" datetime="2025-03-21T22:54:49+08:00">2025-03-21</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>使用hexo+next搭建我的博客，并且利用github进行访问，访问地址为：<a target="_blank" rel="noopener" href="https://nami404.github.io/">https://nami404.github.io/</a></p>
-<p>next主题配置：<a target="_blank" rel="noopener" href="https://blog.csdn.net/as480133937/article/details/100138838">https://blog.csdn.net/as480133937/article/details/100138838</a></p>
-<p>发表文章教程：<a target="_blank" rel="noopener" href="https://fuguigui.github.io/hexo2/">https://fuguigui.github.io/hexo2/</a></p>
-<p><img src="https://cdn.jsdelivr.net/gh/nami404/BlogImage@main/img/202503212354270.png" alt="image-20250321235417442"></p>
-<p>另外，配置Typora+PicGo+Github实现图床，保存博客中的图片。</p>
-<p>使用到的教程：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/489236769">https://zhuanlan.zhihu.com/p/489236769</a></p>
-<p><img src="https://cdn.jsdelivr.net/gh/nami404/BlogImage@main/img/202503212358165.png" alt="image-20250321235812359"></p>
-<p>注意第一个设定仓库名，是“用户名&#x2F;仓库名”，然后自定义域名按照上面教程来的进行cdn配置。</p>
-
-      
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2025/03/21/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/" rel="prev" title="我的第一篇文章">
+      <i class="fa fa-chevron-left"></i> 我的第一篇文章
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
-  
-
-
   
 
 
@@ -392,6 +344,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E4%B8%AA%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">第一个：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E4%B8%AA%EF%BC%9A"><span class="nav-number">2.</span> <span class="nav-text">第二个：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E4%B8%AA%EF%BC%9A"><span class="nav-number">3.</span> <span class="nav-text">第三个：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E4%B8%AA%EF%BC%9A"><span class="nav-number">4.</span> <span class="nav-text">第四个：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%94%E4%B8%AA%EF%BC%9A"><span class="nav-number">5.</span> <span class="nav-text">第五个：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B4%E4%BD%93%E6%B5%8B%E8%AF%95%E7%9A%84SQL%E8%AF%AD%E5%8F%A5%EF%BC%9A"><span class="nav-number">6.</span> <span class="nav-text">整体测试的SQL语句：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E5%BA%94%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E7%9A%84DDL%EF%BC%9A"><span class="nav-number">7.</span> <span class="nav-text">对应数据库表的DDL：</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
